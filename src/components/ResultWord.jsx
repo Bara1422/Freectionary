@@ -3,13 +3,13 @@ import Play from './Icons/Play'
 
 const ResultWord = () => {
   return (
-    <div className='container flex justify-between items-center'>
-      <div className='flex  items-center w-full justify-between'>
+    <div className='container flex items-center justify-between md:pt-5'>
+      <div className='flex items-center justify-between w-full'>
         <div>
-          <h1 className='text-4xl font-bold'>keyboard</h1>
-          <p className='text-pink-300 text-xl'>/'ki:bc:d/</p>
+          <h1 className='text-4xl font-bold md:text-5xl'>keyboard</h1>
+          <p className='text-2xl text-pink-300 md:pt-2'>/'ki:bc:d/</p>
         </div>
-        <button className='mr-4 w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center'>
+        <button className='flex items-center justify-center w-12 h-12 bg-pink-200 rounded-full'>
           <Play />
         </button>
       </div>

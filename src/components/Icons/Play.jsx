@@ -8,7 +8,7 @@ const Play = () => {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='#FF69B4'
-      className='w-4 h-4 text-white rounded-full'
+      className='w-5 h-5 text-white rounded-full'
     >
       <path
         strokeLinecap='round'

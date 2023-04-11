@@ -7,14 +7,14 @@ const ResultsSearch = () => {
   return (
     <>
       <ResultWord />
-      <section className='container flex flex-col'>
-        <div className='flex gap-4 items-center'>
-          <h2 className='italic font-bold'>noun</h2>
+      <section className='container flex flex-col '>
+        <div className='flex items-center gap-4'>
+          <h2 className='text-xl italic font-bold'>noun</h2>
           <div className='h-[0.5px] bg-gray-200 w-full' />
         </div>
         <div className=''>
-          <h3 className='text-gray-400 mt-6'>Meaning</h3>
-          <ul className='p-4 list-disc marker:text-pink-400 flex flex-col gap-4'>
+          <h3 className='mt-6 text-xl text-gray-400'>Meaning</h3>
+          <ul className='flex flex-col gap-4 p-5  list-disc marker:text-pink-400 text-[0.9rem] md:text-[1.1rem] md:[&>li]:pl-4'>
             <li>
               (etc.) A set of keys used to operate a typewriter, computer etc.
             </li>
@@ -31,8 +31,8 @@ const ResultsSearch = () => {
           </ul>
         </div>
         <div className='flex gap-5 my-3'>
-          <h3 className='text-gray-400'>Synonyms</h3>
-          <div className='text-pink-400 flex gap-2 font-bold'>
+          <h3 className='text-xl text-gray-400'>Synonyms</h3>
+          <div className='flex gap-2 font-bold text-pink-400'>
             <button>electronic</button>
             <button>keyboard</button>
           </div>
@@ -41,14 +41,14 @@ const ResultsSearch = () => {
 
       <div className='h-[0.5px] bg-gray-200 w-full' />
 
-      <section className='mt-3'>
-        <span>Source</span>
+      <section className='items-center mt-3 text-sm sm:flex sm:gap-5'>
+        <span className='text-gray-400'>Source</span>
         <a
-          className='decoration-dashed flex items-center gap-2'
+          className='flex items-center gap-2 pt-2 underline sm:pt-0'
           href='https://en.wikionary.org/wiki/keyboard'
         >
           {' '}
-          https://en.wiktionary.org/wiki/keyboard <ArrowTopRight />
+          https://en.wiktionary.org/wiki/keyboard <ArrowTopRight className='' />
         </a>
       </section>
     </>

@@ -3,15 +3,14 @@ import Search from './Icons/Search'
 
 const SearchInput = () => {
   return (
-    <form className='bg-slate-200 p-2 rounded-xl w-full '>
+    <form className='bg-slate-200 p-2.5 rounded-2xl w-full'>
       <label htmlFor='search-input' className='flex items-center gap-2 pl-2'>
         <input
-          placeholder='hola'
           type='text'
           id='search-input'
-          className='bg-slate-200 w-full'
+          className='w-full font-bold bg-slate-200 focus:outline-none'
         />
-        <button type='submit' className='inline'>
+        <button type='submit' className='inline pr-2 '>
           <Search />
         </button>
       </label>
