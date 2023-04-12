@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <Spinner className='flex items-center justify-normal' />
+        <Spinner className='' />
       ) : (
         <div className='container flex flex-col gap-4 p-4 mx-auto font-serif md:p-6 lg:max-w-4xl sm:gap-8'>
           <Header />

@@ -14,8 +14,8 @@ const MeaningSection = ({ partOfSpeech, definitions }) => {
             <React.Fragment key={definition.definition}>
               <li>{definition?.definition}</li>
               {definition.example && (
-                <span className='pt-2 pl-5 text-gray-400'>
-                  {definition.example}
+                <span className='pt-2 pl-5 italic text-gray-400'>
+                  "{definition.example}"
                 </span>
               )}
             </React.Fragment>

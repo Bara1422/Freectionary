@@ -2,7 +2,6 @@ import React from 'react'
 import Play from './Icons/Play'
 
 const ResultWord = ({ phonetics, text, phonetic }) => {
-  console.log('Phonetics', phonetics)
   const phoneticWithAudio = phonetics?.find((phonetic) => phonetic.audio !== '')
   const phoneticText = phoneticWithAudio ? phoneticWithAudio.text : ''
   console.log(phoneticWithAudio)
@@ -12,7 +11,7 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
       <div className='flex items-center justify-between w-full'>
         <div>
           <h1 className='text-4xl font-bold md:text-5xl'>{text}</h1>
-          <p className='text-2xl text-pink-300 md:pt-2'>
+          <p className='text-2xl text-pink-400 md:pt-2'>
             {phoneticText || phonetic}
           </p>
         </div>

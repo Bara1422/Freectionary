@@ -1,9 +1,10 @@
 import React from 'react'
 
 import ResultWord from './ResultWord'
-import ArrowTopRight from './Icons/ArrowTopRight'
+
 import MeaningSection from './MeaningSection'
 import SynonymsSection from './SynonymsSection'
+import SourceSection from './SourceSection'
 
 const ResultsSearch = ({ word }) => {
   console.log(word)
@@ -32,7 +33,8 @@ const ResultsSearch = ({ word }) => {
 
       <div className='h-[0.5px] bg-gray-200 w-full' />
 
-      <section className='items-center mt-3 text-sm sm:flex sm:gap-5'>
+      <SourceSection word={word?.word} />
+      {/*  <section className='items-center mt-3 text-sm sm:flex sm:gap-5'>
         <span className='text-gray-400'>Source</span>
         <a
           className='flex items-center gap-2 pt-2 underline sm:pt-0'
@@ -43,7 +45,7 @@ const ResultsSearch = ({ word }) => {
           {' '}
           https://en.wiktionary.org/wiki/keyboard <ArrowTopRight className='' />
         </a>
-      </section>
+      </section> */}
     </>
   )
 }

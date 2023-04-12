@@ -11,7 +11,7 @@ const SearchInput = ({ apiFetch }) => {
   }
   return (
     <form
-      className='bg-slate-200 p-2.5 rounded-2xl w-full'
+      className='bg-slate-200 p-2.5 rounded-2xl w-full dark:bg-gray-700'
       onSubmit={handleSubmit}
     >
       <label htmlFor='search-input' className='flex items-center gap-2 pl-2'>
@@ -20,7 +20,7 @@ const SearchInput = ({ apiFetch }) => {
           autoComplete='off'
           required
           id='search-input'
-          className='w-full font-bold bg-slate-200 focus:outline-none'
+          className='w-full font-bold bg-slate-200 dark:bg-gray-700 dark:text-white focus:outline-none'
           value={inputWord}
           onChange={(e) => setInputWord(e.target.value)}
         />
