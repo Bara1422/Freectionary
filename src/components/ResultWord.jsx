@@ -17,20 +17,12 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
         }
       }
 
-      const handleEnded = () => {
-        setIsPlaying(false)
-      }
-
-      audioRef.current.addEventListener('ended', handleEnded)
       window.addEventListener('keydown', handleKeyDown)
 
       setIsPlaying(false)
 
       return () => {
         window.removeEventListener('keydown', handleKeyDown)
-        if (audioRef.current) {
-          audioRef.current.removeEventListener('ended', handleEnded)
-        }
       }
     }
   }, [phoneticWithAudio])
@@ -56,7 +48,11 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
             }}
             tabIndex='0'
           >
-            <audio ref={audioRef} src={phoneticWithAudio?.audio} />
+            <audio
+              ref={audioRef}
+              src={phoneticWithAudio?.audio}
+              onEnded={() => setIsPlaying(false)}
+            />
             {isPlaying ? <Pause /> : <Play />}
           </button>
         )}
