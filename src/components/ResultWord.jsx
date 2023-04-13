@@ -38,7 +38,7 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
         </div>
         {phoneticWithAudio && (
           <button
-            className='flex items-center justify-center w-12 h-12 bg-pink-200 rounded-full'
+            className='flex items-center justify-center w-12 h-12 transition-colors bg-pink-200 rounded-full hover:scale-110 hover:bg-pink-300'
             onClick={(event) => {
               !isPlaying ? audioRef.current.play() : audioRef.current.pause()
               setIsPlaying(!isPlaying)

@@ -1,15 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Moon from './Icons/Moon'
 import Book from './Icons/Book'
 import Sun from './Icons/Sun'
 
-const Header = () => {
+const Header = ({ handleFont }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [selectedFont, setSelectedFont] = useState('serif')
 
   const handleDarkMode = () => {
     document.documentElement.classList.toggle('dark')
     setIsDarkMode(!isDarkMode)
   }
+
+  const handleSelect = (e) => {
+    const selectedValue = e.target.value
+    setSelectedFont(selectedValue)
+    handleFont(selectedValue)
+    console.log(selectedValue)
+  }
+
+  useEffect(() => {
+    const rootElement = document.documentElement
+    rootElement.classList.remove(
+      'font-sans',
+      'font-serif',
+      'font-monospace',
+      'font-roboto',
+      'font-merriweather',
+      'font-oswald'
+    )
+    rootElement.classList.add(`font-${selectedFont}`)
+  }, [selectedFont])
 
   return (
     <header className='container flex justify-between'>
@@ -17,9 +38,18 @@ const Header = () => {
         <Book />
       </h2>
       <div className='flex gap-3 divide-x-2'>
-        <select name='font' id='font' className='dark:bg-slate-800'>
-          <option value='Serif'>Serif</option>
-          <option value='Roboto'>Roboto</option>
+        <select
+          name='font'
+          id='font'
+          className='dark:bg-slate-800'
+          onChange={handleSelect}
+        >
+          <option value='serif'>Serif</option>
+          <option value='sans'>Sans</option>
+          <option value='monospace'>MonoSpace</option>
+          <option value='roboto'>Roboto</option>
+          <option value='merriweather'>Merriweather</option>
+          <option value='oswald'>Oswald</option>
         </select>
         <div className='flex gap-3 pl-3'>
           <label className='relative inline-flex items-center cursor-pointer'>

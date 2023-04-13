@@ -25,7 +25,7 @@ const SearchInput = ({ apiFetch, setCurrentWord }) => {
           placeholder='Type here...'
           className='w-full font-bold bg-slate-200 dark:bg-gray-700 dark:text-white focus:outline-none'
           value={inputWord}
-          onChange={(e) => setInputWord(e.target.value.trim())}
+          onChange={(e) => setInputWord(e.target.value)}
         />
         <button type='submit' className='inline pr-2 '>
           <Search />

@@ -4,8 +4,11 @@ export default {
   theme: {
     fontFamily: {
       sans: ['sans-serif'],
+      serif: ['serif'],
+      monospace: ['Space Mono', 'monospace'],
       roboto: ['Roboto', 'serif'],
-      merriweather: ['Merriweather', 'serif']
+      merriweather: ['Merriweather', 'serif'],
+      oswald: ['Oswald', 'sans-serif']
     },
     extend: {}
   },
