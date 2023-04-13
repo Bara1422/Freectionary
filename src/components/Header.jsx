@@ -30,7 +30,7 @@ const Header = () => {
               onChange={handleDarkMode}
             />
             <div
-              className="w-11 h-5 bg-gray-500 peer-focus:outline-[2px solid transparent] focus-within:outline-offset-[2px]
+              className="w-11 h-5 bg-gray-500 peer-focus:outline-[2px solid transparent] focus-within:outline-offset-[2px] checked:outline-[2px solid transparent]
             rounded-full dark:bg-gray-500 peer-checked:outline-none
             peer-checked:after:translate-x-full peer-checked:after:border-white
             after:content-[''] after:absolute after:top-[4px] after:left-[6px]

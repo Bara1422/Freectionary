@@ -7,10 +7,12 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
   const audioRef = useRef(null)
 
   useEffect(() => {
-    if (!isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play()
+    if (audioRef.current) {
+      if (!isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
     }
   }, [isPlaying])
 

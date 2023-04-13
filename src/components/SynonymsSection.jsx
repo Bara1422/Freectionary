@@ -6,7 +6,7 @@ const SynonymsSection = ({ synonyms }) => {
     <div className='flex flex-wrap items-end gap-3 my-3'>
       <h3 className='text-xl text-gray-400'>Synonyms</h3>
       {synonymSplice.map((synonym, index) => (
-        <span key={index} className='font-bold text-pink-500 sm:text-xl'>
+        <span key={index} className='font-bold text-pink-600 sm:text-xl'>
           {synonym}
         </span>
       ))}
