@@ -44,8 +44,8 @@ const Header = ({ handleFont }) => {
           className='dark:bg-slate-800'
           onChange={handleSelect}
         >
-          <option value='serif'>Serif</option>
           <option value='sans'>Sans</option>
+          <option value='serif'>Serif</option>
           <option value='monospace'>MonoSpace</option>
           <option value='roboto'>Roboto</option>
           <option value='merriweather'>Merriweather</option>

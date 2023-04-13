@@ -6,11 +6,14 @@ import useWord from './hooks/useWord'
 import SourceSection from './components/SourceSection'
 import NoData from './components/NoData'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 function App() {
   const { word, isLoading, apiFetch, hasData } = useWord()
-  const [currentWord, setCurrentWord] = useState('')
-  const [selectedFont, setSelectedFont] = useState('serif')
+
+  const [selectedFont, setSelectedFont] = useState('sans')
+  const { endpointWord } = useParams()
+  console.log(endpointWord)
 
   const handleFont = (label) => {
     setSelectedFont(label)
@@ -24,10 +27,10 @@ function App() {
         className={`container flex flex-col min-h-screen gap-4 p-4 mx-auto font-${selectedFont} md:p-6 lg:max-w-4xl sm:gap-8`}
       >
         <Header handleFont={handleFont} />
-        <SearchInput apiFetch={apiFetch} setCurrentWord={setCurrentWord} />
+        <SearchInput apiFetch={apiFetch} />
         {isLoading && <Spinner />}
         {!hasData ? (
-          <NoData word={currentWord} />
+          <NoData word={endpointWord} />
         ) : (
           <>
             <ResultsSearch word={word} />

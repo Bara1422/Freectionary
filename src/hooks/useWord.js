@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const useWord = () => {
   const [word, setWord] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [hasData, setHasData] = useState(false)
+  const { endpointWord } = useParams()
+  console.log(endpointWord)
 
   const apiFetch = async (endpoint) => {
     setIsLoading(true)
@@ -38,8 +41,12 @@ const useWord = () => {
   }
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    if (endpointWord) {
+      apiFetch(endpointWord)
+    } else {
+      fetchData()
+    }
+  }, [endpointWord])
 
   return { word, isLoading, apiFetch, fetchData, hasData }
 }

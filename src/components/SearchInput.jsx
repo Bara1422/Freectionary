@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import Search from './Icons/Search'
+import { useNavigate } from 'react-router-dom'
 
-const SearchInput = ({ apiFetch, setCurrentWord }) => {
+const SearchInput = ({ apiFetch }) => {
   const [inputWord, setInputWord] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     apiFetch(inputWord)
-    setCurrentWord(inputWord)
+    navigate(`/${inputWord}`)
     setInputWord('')
   }
 
