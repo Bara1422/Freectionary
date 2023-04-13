@@ -5,19 +5,12 @@ import SearchInput from './components/SearchInput'
 import useWord from './hooks/useWord'
 import SourceSection from './components/SourceSection'
 import NoData from './components/NoData'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function App() {
   const { word, isLoading, apiFetch, hasData } = useWord()
   const [currentWord, setCurrentWord] = useState('')
 
-  console.log(isLoading)
-  console.log(hasData)
-
-  useEffect(() => {
-    console.log('Valor actualizado', `${word?.word}`)
-  }, [word])
-  console.log(word)
   if (isLoading) <Spinner />
   return (
     <>

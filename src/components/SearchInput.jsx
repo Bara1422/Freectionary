@@ -3,7 +3,6 @@ import Search from './Icons/Search'
 
 const SearchInput = ({ apiFetch, setCurrentWord }) => {
   const [inputWord, setInputWord] = useState('')
-  console.log(inputWord)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -11,6 +10,7 @@ const SearchInput = ({ apiFetch, setCurrentWord }) => {
     setCurrentWord(inputWord)
     setInputWord('')
   }
+
   return (
     <form
       className='bg-slate-200 dark:bg-gray-700 p-2.5 rounded-2xl w-full'

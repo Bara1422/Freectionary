@@ -16,13 +16,13 @@ const useWord = () => {
         throw new Error('No data found')
       }
       setWord(data[0])
-      setIsLoading(false)
       setHasData(true)
     } catch (error) {
-      console.log('first')
+      console.log('Error')
       setHasData(false)
-      setIsLoading(false)
       throw error
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -34,6 +34,7 @@ const useWord = () => {
     const data = await result.json()
     setWord(data[0])
     setIsLoading(false)
+    setHasData(true)
   }
 
   useEffect(() => {
