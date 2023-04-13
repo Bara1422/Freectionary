@@ -2,10 +2,10 @@ import React from 'react'
 
 const MeaningSection = ({ partOfSpeech, definitions }) => {
   return (
-    <div className='container flex flex-col'>
+    <div className='container flex flex-col mt-4'>
       <div className='flex items-center gap-4'>
-        <h2 className='text-xl italic font-bold'>{partOfSpeech}</h2>
-        <div className='h-[0.5px] bg-gray-200 w-full' />
+        <h2 className='mt-5 text-xl italic font-semibold'>{partOfSpeech}</h2>
+        <div className='h-[0.5px] bg-gray-200 w-full mt-5' />
       </div>
       <div className=''>
         <h3 className='mt-6 text-xl text-gray-400'>Meaning</h3>

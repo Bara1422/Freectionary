@@ -6,16 +6,6 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
 
-  useEffect(() => {
-    if (audioRef.current) {
-      if (!isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
-    }
-  }, [isPlaying])
-
   const phoneticWithAudio = phonetics?.find((phonetic) => phonetic.audio !== '')
   const phoneticText = phoneticWithAudio ? phoneticWithAudio.text : ''
 
@@ -57,7 +47,10 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
         {phoneticWithAudio && (
           <button
             className='flex items-center justify-center w-12 h-12 bg-pink-200 rounded-full'
-            onClick={() => setIsPlaying(!isPlaying)}
+            onClick={(event) => {
+              !isPlaying ? audioRef.current.play() : audioRef.current.pause()
+              setIsPlaying(!isPlaying)
+            }}
             onKeyDown={(event) => {
               if (event.code === 'Space') event.stopPropagation()
             }}
