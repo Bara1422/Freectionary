@@ -1,31 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import Play from './Icons/Play'
 import Pause from './Icons/Pause'
+import useAudio from '../hooks/useAudio'
 
 const ResultWord = ({ phonetics, text, phonetic }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef(null)
-
   const phoneticWithAudio = phonetics?.find((phonetic) => phonetic.audio !== '')
   const phoneticText = phoneticWithAudio ? phoneticWithAudio.text : ''
+
+  const [isPlaying, togglePlayPause] = useAudio(phoneticWithAudio?.audio)
 
   useEffect(() => {
     if (phoneticWithAudio) {
       const handleKeyDown = (event) => {
         if (event.code === 'Space' && event.target === document.body) {
-          setIsPlaying((currentIsPlaying) => !currentIsPlaying)
+          togglePlayPause()
         }
       }
-
       window.addEventListener('keydown', handleKeyDown)
-
-      setIsPlaying(false)
 
       return () => {
         window.removeEventListener('keydown', handleKeyDown)
       }
     }
-  }, [phoneticWithAudio])
+  }, [phoneticWithAudio, togglePlayPause])
 
   return (
     <div className='container flex items-center justify-between md:pt-5'>
@@ -39,20 +36,12 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
         {phoneticWithAudio && (
           <button
             className='flex items-center justify-center w-12 h-12 transition-colors bg-pink-200 rounded-full hover:scale-110 hover:bg-pink-300'
-            onClick={(event) => {
-              !isPlaying ? audioRef.current.play() : audioRef.current.pause()
-              setIsPlaying(!isPlaying)
-            }}
+            onClick={togglePlayPause}
             onKeyDown={(event) => {
               if (event.code === 'Space') event.stopPropagation()
             }}
             tabIndex='0'
           >
-            <audio
-              ref={audioRef}
-              src={phoneticWithAudio?.audio}
-              onEnded={() => setIsPlaying(false)}
-            />
             {isPlaying ? <Pause /> : <Play />}
           </button>
         )}

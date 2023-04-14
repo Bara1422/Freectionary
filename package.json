@@ -11,7 +11,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "react-scroll-to-top": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
@@ -27,7 +28,8 @@
     "extends": "./node_modules/standard/eslintrc.json",
     "rules": {
       "space-before-function-paren": "off",
-      "multiline-ternary": "off"
+      "multiline-ternary": "off",
+      "no-undef": "off"
     }
   }
 }

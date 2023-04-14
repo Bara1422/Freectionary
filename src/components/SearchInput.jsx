@@ -22,10 +22,11 @@ const SearchInput = ({ apiFetch }) => {
         <input
           type='text'
           autoComplete='off'
+          autoFocus
           required
           id='search-input'
           placeholder='Type here...'
-          className='w-full font-bold foucs:outline-offset-2 bg-slate-200 dark:bg-gray-700 dark:text-white '
+          className='w-full font-bold focus:outline-none bg-slate-200 dark:bg-gray-700 dark:text-white focus:caret-pink-500'
           value={inputWord}
           onChange={(e) => setInputWord(e.target.value)}
         />

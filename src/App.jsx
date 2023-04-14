@@ -1,17 +1,19 @@
-import Spinner from './UI/Spinner'
+import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ScrollToTop from 'react-scroll-to-top'
+import useWord from './hooks/useWord'
 import Header from './components/Header'
 import ResultsSearch from './components/ResultsSearch'
 import SearchInput from './components/SearchInput'
-import useWord from './hooks/useWord'
 import SourceSection from './components/SourceSection'
+import ArrowToTop from './components/Icons/ArrowToTop'
 import NoData from './components/NoData'
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import Spinner from './UI/Spinner'
 
 function App() {
   const { word, isLoading, apiFetch, hasData } = useWord()
 
-  const [selectedFont, setSelectedFont] = useState('sans')
+  const [selectedFont, setSelectedFont] = useState('')
   const { endpointWord } = useParams()
   console.log(endpointWord)
 
@@ -40,6 +42,11 @@ function App() {
           </>
         )}
       </div>
+      <ScrollToTop
+        component={<ArrowToTop />}
+        className='flex items-center justify-center text-pink-500 bg-gray-200 border-[1px] border-solid rounded-full pink-500 md:hidden'
+        smooth
+      />
     </>
   )
 }
