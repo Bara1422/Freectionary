@@ -6,6 +6,9 @@ import Sun from './Icons/Sun'
 const Header = ({ handleFont }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [selectedFont, setSelectedFont] = useState('serif')
+  const [preferredTheme, setPreferredTheme] = useState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  )
 
   const handleDarkMode = () => {
     document.documentElement.classList.toggle('dark')
@@ -32,6 +35,24 @@ const Header = ({ handleFont }) => {
     rootElement.classList.add(`font-${selectedFont}`)
   }, [selectedFont])
 
+  // DARK
+
+  useEffect(() => {
+    const preferredThemeQuery = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    )
+    setPreferredTheme(preferredThemeQuery.matches ? 'dark' : 'light')
+  }, [])
+
+  useEffect(() => {
+    const rootElement = document.documentElement
+    rootElement.classList.toggle('dark', preferredTheme === 'dark')
+    setIsDarkMode(!isDarkMode)
+  }, [preferredTheme])
+
+  console.log(isDarkMode)
+  // END DARK
+
   return (
     <header className='container flex justify-between'>
       <h2 className='text-2xl font-bold'>
@@ -55,12 +76,15 @@ const Header = ({ handleFont }) => {
           <label className='relative inline-flex items-center cursor-pointer'>
             <input
               type='checkbox'
+              checked={isDarkMode}
               value=''
-              className='outline-none sr-only peer '
+              className={`sr-only peer ${
+                preferredTheme === 'dark' ? 'peer-checked' : ''
+              }`}
               onChange={handleDarkMode}
             />
             <div
-              className="w-11 h-5 bg-gray-500 peer-focus:outline-[2px solid transparent] focus-within:outline-offset-[2px] checked:outline-[2px solid transparent]
+              className="w-11 h-5 bg-gray-500 peer-focus:outline peer-checked
             rounded-full dark:bg-gray-500 peer-checked:outline-none
             peer-checked:after:translate-x-full peer-checked:after:border-white
             after:content-[''] after:absolute after:top-[4px] after:left-[6px]

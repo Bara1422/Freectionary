@@ -25,7 +25,7 @@ const SearchInput = ({ apiFetch }) => {
           required
           id='search-input'
           placeholder='Type here...'
-          className='w-full font-bold bg-slate-200 dark:bg-gray-700 dark:text-white focus:outline-none'
+          className='w-full font-bold foucs:outline-offset-2 bg-slate-200 dark:bg-gray-700 dark:text-white '
           value={inputWord}
           onChange={(e) => setInputWord(e.target.value)}
         />
