@@ -8,9 +8,9 @@ const SynonymsSection = ({ synonyms }) => {
   const firstFiveSynonyms = synonyms.slice(0, 5)
 
   const handleSynonym = (synonym) => {
-    console.log(synonym)
     apiFetch(synonym)
     navigate(`/${synonym}`)
+    window.scrollTo(0, 0)
   }
   return (
     <div className='flex flex-wrap items-end gap-3 my-3 '>
