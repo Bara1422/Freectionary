@@ -13,7 +13,7 @@ const SourceSection = ({ word }) => {
         rel='noreferrer'
       >
         {' '}
-        https://en.wiktionary.org/wiki/{word} <ArrowTopRight className='' />
+        https://en.wiktionary.org/wiki/{word} <ArrowTopRight />
       </a>
     </section>
   )

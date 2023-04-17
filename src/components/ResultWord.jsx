@@ -1,28 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import Play from './Icons/Play'
 import Pause from './Icons/Pause'
 import useAudio from '../hooks/useAudio'
 
 const ResultWord = ({ phonetics, text, phonetic }) => {
   const phoneticWithAudio = phonetics?.find((phonetic) => phonetic.audio !== '')
-  const phoneticText = phoneticWithAudio ? phoneticWithAudio.text : ''
+  const hasPhoneticWithAudio = !!phoneticWithAudio
+  const phoneticText = hasPhoneticWithAudio ? phoneticWithAudio.text : ''
 
   const [isPlaying, togglePlayPause] = useAudio(phoneticWithAudio?.audio)
 
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.code === 'Space' && event.target === document.body) {
+        togglePlayPause()
+      }
+    },
+    [togglePlayPause]
+  )
+
   useEffect(() => {
     if (phoneticWithAudio) {
-      const handleKeyDown = (event) => {
-        if (event.code === 'Space' && event.target === document.body) {
-          togglePlayPause()
-        }
-      }
       window.addEventListener('keydown', handleKeyDown)
 
       return () => {
         window.removeEventListener('keydown', handleKeyDown)
       }
     }
-  }, [phoneticWithAudio, togglePlayPause])
+  }, [phoneticWithAudio, handleKeyDown])
 
   return (
     <div className='container flex items-center justify-between md:pt-5'>

@@ -22,6 +22,7 @@ const SearchInput = ({ apiFetch }) => {
         <input
           type='text'
           autoComplete='off'
+          aria-label='Search'
           autoFocus
           required
           id='search-input'
@@ -30,7 +31,7 @@ const SearchInput = ({ apiFetch }) => {
           value={inputWord}
           onChange={(e) => setInputWord(e.target.value)}
         />
-        <button type='submit' className='inline pr-2 '>
+        <button type='button' className='inline pr-2 '>
           <Search />
         </button>
       </label>

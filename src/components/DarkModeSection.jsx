@@ -17,6 +17,7 @@ const DarkModeSection = () => {
           }`}
           onChange={handleDarkMode}
         />
+
         <div
           className="w-11 h-5 bg-gray-500 peer-focus:outline peer-checked
             rounded-full dark:bg-gray-500 peer-checked:outline-none

@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const useAudio = (url) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
+
+  const handlePlay = useCallback(() => setIsPlaying(true), [])
+  const handlePause = useCallback(() => setIsPlaying(false), [])
+  const handleEnded = useCallback(() => setIsPlaying(false), [])
 
   useEffect(() => {
     if (typeof Audio !== 'undefined') {
       audioRef.current = new Audio(url)
 
       const audio = audioRef.current
-
-      const handlePlay = () => setIsPlaying(true)
-      const handlePause = () => setIsPlaying(false)
-      const handleEnded = () => setIsPlaying(false)
 
       audio.addEventListener('play', handlePlay)
       audio.addEventListener('pause', handlePause)
@@ -24,7 +24,7 @@ const useAudio = (url) => {
         audio.removeEventListener('ended', handleEnded)
       }
     }
-  }, [])
+  }, [handlePlay, handlePause, handleEnded])
 
   useEffect(() => {
     if (audioRef.current) {
@@ -33,13 +33,13 @@ const useAudio = (url) => {
     }
   }, [url])
 
-  const togglePlayPause = () => {
+  const togglePlayPause = useCallback(() => {
     if (isPlaying) {
       audioRef.current.pause()
     } else {
       audioRef.current.play()
     }
-  }
+  }, [isPlaying])
 
   return [isPlaying, togglePlayPause]
 }

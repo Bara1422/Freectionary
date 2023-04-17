@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const useDarkMode = () => {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -6,10 +6,10 @@ const useDarkMode = () => {
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   )
 
-  const handleDarkMode = () => {
+  const handleDarkMode = useCallback(() => {
     document.documentElement.classList.toggle('dark')
     setIsDarkMode(!isDarkMode)
-  }
+  }, [isDarkMode])
 
   useEffect(() => {
     const preferredThemeQuery = window.matchMedia(

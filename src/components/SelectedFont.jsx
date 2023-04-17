@@ -7,6 +7,7 @@ const SelectedFont = ({ handleSelect }) => {
       id='font'
       className='dark:bg-slate-800'
       onChange={handleSelect}
+      defaultChecked='sans'
     >
       <option value='sans'>Sans</option>
       <option value='serif'>Serif</option>
