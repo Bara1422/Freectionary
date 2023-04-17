@@ -7,7 +7,6 @@ const useWord = () => {
   const [hasData, setHasData] = useState(false)
   const { endpointWord } = useParams()
 
-
   const apiFetch = useCallback(
     async (endpoint) => {
       setIsLoading(true)
@@ -36,7 +35,7 @@ const useWord = () => {
     setIsLoading(true)
     try {
       const result = await fetch(
-        'https://api.dictionaryapi.dev/api/v2/entries/en/keyboard'
+        'https://api.dictionaryapi.dev/api/v2/entries/en/welcome'
       )
       const data = await result.json()
       setWord(data[0])
