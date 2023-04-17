@@ -5,7 +5,7 @@ import MeaningSection from './MeaningSection'
 import SynonymsSection from './SynonymsSection'
 
 const ResultsSearch = ({ word }) => {
-  console.log(word)
+
   return (
     <div>
       <ResultWord

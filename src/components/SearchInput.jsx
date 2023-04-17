@@ -31,7 +31,7 @@ const SearchInput = ({ apiFetch }) => {
           value={inputWord}
           onChange={(e) => setInputWord(e.target.value)}
         />
-        <button type='button' className='inline pr-2 '>
+        <button type='submit' className='inline pr-2 '>
           <Search />
         </button>
       </label>

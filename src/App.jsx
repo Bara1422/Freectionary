@@ -15,11 +15,9 @@ function App() {
 
   const [selectedFont, setSelectedFont] = useState('')
   const { endpointWord } = useParams()
-  console.log(endpointWord)
 
   const handleFont = (label) => {
     setSelectedFont(label)
-    console.log(label)
   }
 
   return (

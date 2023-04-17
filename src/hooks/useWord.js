@@ -6,7 +6,7 @@ const useWord = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [hasData, setHasData] = useState(false)
   const { endpointWord } = useParams()
-  console.log(endpointWord)
+
 
   const apiFetch = useCallback(
     async (endpoint) => {
