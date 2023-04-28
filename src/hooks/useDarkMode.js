@@ -24,6 +24,14 @@ const useDarkMode = () => {
     setIsDarkMode(!isDarkMode)
   }, [preferredTheme])
 
+  useEffect(() => {
+    if (preferredTheme === 'dark') {
+      setIsDarkMode(true)
+    } else {
+      setIsDarkMode(false)
+    }
+  }, [])
+
   return [isDarkMode, handleDarkMode, preferredTheme]
 }
 
