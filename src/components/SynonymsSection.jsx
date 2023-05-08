@@ -14,7 +14,7 @@ const SynonymsSection = ({ synonyms }) => {
   }
   return (
     <div className='flex flex-wrap items-end gap-3 my-3 '>
-      <h3 className='text-xl text-gray-500 border-b-2 border-transparent dark:text-gray-400'>
+      <h3 className='text-xl text-gray-700 border-b-2 border-transparent dark:text-gray-400'>
         Synonyms
       </h3>
       {firstFiveSynonyms.map((synonym, index) => (
