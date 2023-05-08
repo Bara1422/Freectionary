@@ -11,6 +11,7 @@ const DarkModeSection = () => {
         className='relative inline-flex items-center cursor-pointer'
         htmlFor='dark-mode-toggle'
       >
+        <span className='sr-only'>Change Darkmode</span>
         <input
           type='checkbox'
           checked={isDarkMode}
