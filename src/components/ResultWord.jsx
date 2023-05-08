@@ -46,6 +46,7 @@ const ResultWord = ({ phonetics, text, phonetic }) => {
               if (event.code === 'Space') event.stopPropagation()
             }}
             tabIndex='0'
+            aria-label='Play phonetic'
           >
             {isPlaying ? <Pause /> : <Play />}
           </button>

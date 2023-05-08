@@ -7,11 +7,15 @@ const DarkModeSection = () => {
   const [isDarkMode, handleDarkMode, preferredTheme] = useDarkMode()
   return (
     <div className='flex gap-3 pl-3'>
-      <label className='relative inline-flex items-center cursor-pointer'>
+      <label
+        className='relative inline-flex items-center cursor-pointer'
+        htmlFor='dark-mode-toggle'
+      >
         <input
           type='checkbox'
           checked={isDarkMode}
           value=''
+          id='dark-mode-toggle'
           className={`sr-only peer ${
             preferredTheme === 'dark' ? 'peer-checked' : ''
           }`}
